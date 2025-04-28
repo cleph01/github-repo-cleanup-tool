@@ -83,6 +83,16 @@ The `package.json` file includes several npm scripts to run the different parts 
 - `npm run delete`: Executes only the delete-repos.js script. Important: This script relies on a file named repos-for-deletion.json which you need to manually create and populate (see the next step).
 - `npm run fetch-and-delete`: This is an alias for npm run start, running both scripts sequentially.
 
+\*\*\* I run it old-school:
+
+```bash
+   node src/fetch-repos.js
+   OR
+   node src/fetch-repos-over-100.js
+   OR
+   node src/delete-repos.js
+```
+
 ## Step-by-Step Instructions:
 
 **1. Fetch your list of repositories:**
@@ -92,13 +102,17 @@ Run the following command to fetch a list of your GitHub repositories:
 ```Bash
 
 npm run fetch
+OR
+node src/fetch-repos.js
+OR
+node src/fetch-repos-over-100.js
 ```
 
 This will create a file named my-repos.json in the root of your project containing a list of your repository full names (e.g., "cleph01/my-awesome-repo").
 
 **2. Select repositories for deletion:**
 
-- Manually create a new file named `repos-for-deletion.json` in the root of your project.
+- Notice th file named `repos-for-deletion.json` in the root of your project.
 - Open both `my-repos.json` and `repos-for-deletion.json` in a text editor.
 - Carefully review the list in `my-repos.json` and copy the full names of the repositories you want to delete into the `repos-for-deletion.json` file. The `repos-for-deletion.json` file should contain a JSON array of strings, like this example:
 
@@ -110,7 +124,7 @@ This will create a file named my-repos.json in the root of your project containi
 ]
 ```
 
-- Double-check the `repos-for-deletion.json` file to ensure you have only included the repositories you intend to delete. Deleting a repository is a permanent action!
+- Double-check the `repos-for-deletion.json` file to ensure you have only included the repositories you intend to delete. **Deleting a repository is a permanent action!**
 
 **3. Delete the selected repositories:**
 
@@ -119,6 +133,8 @@ Once you have populated the repos-for-deletion.json file with the repositories y
 ```Bash
 
 npm run delete
+OR
+node src/delete-repos.js
 ```
 
 The script will then attempt to delete each repository listed in repos-for-deletion.json. The results of each deletion attempt (success or failure) will be logged to the console and also saved in a file named `deleted-repos.json`.
@@ -137,7 +153,7 @@ or
 npm run fetch-and-delete
 ```
 
-However, it is highly recommended to run `npm run fetch` first, carefully review and populate `repos-for-deletion.json`, and then run `npm run delete` separately to avoid accidental data loss.
+**_However, it is highly recommended to run `npm run fetch` first, carefully review and populate `repos-for-deletion.json`, and then run `npm run delete` separately to avoid accidental data loss._**
 
 ## References
 
