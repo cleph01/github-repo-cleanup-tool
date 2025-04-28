@@ -35,7 +35,10 @@ async function deleteRepositories() {
     return;
   }
 
+  // Create variable to store the output filename for logging deletion results.
+  // This file will contain the status of each deletion attempt.
   const outputFilename = "deleted-repos.json";
+
   // Loop through each repository full name in the list.
   for (const repoFullName of reposForDeletion) {
     // Split the repository full name (owner/repo) into its owner and repository name components.
