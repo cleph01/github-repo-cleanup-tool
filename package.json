@@ -1,0 +1,20 @@
+{
+  "name": "delete-github-repos",
+  "version": "1.0.0",
+  "description": "Bulk Delete Github Repos",
+  "main": "fetch-repos.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/fetch-repos-over-100.js && node src/delete-repos.js",
+    "fetch": "node src/fetch-repos-over-100.js",
+    "delete": "node src/delete-repos.js",
+    "fetch-and-delete": "node src/fetch-repos-over-100.js && node src/delete-repos.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Charles Montoya",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/core": "^6.1.5",
+    "dotenv": "^16.5.0"
+  }
+}
