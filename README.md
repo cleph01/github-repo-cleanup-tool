@@ -1,4 +1,4 @@
-# GitHub Repository Management Script
+# GitHub Repository Cleanup Script
 
 This repository contains scripts to help you manage your GitHub repositories, specifically for fetching a list of your repositories and deleting selected ones.
 
