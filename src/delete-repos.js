@@ -6,17 +6,19 @@
  */
 
 import { Octokit } from "@octokit/core";
-import { githubUsername, githubAccessToken } from "./config-loader"; // Assuming this module exports the GitHub username and access token
+import service from "./config-loader.js"; // Assuming this module exports the GitHub username and access token
 import fs from "fs";
 
 // Read the list of repositories to be deleted from the 'repos-for-deletion.json' file.
 // If the file doesn't exist or is empty, reposForDeletion will be null or an empty array.
-const reposForDeletion = JSON.parse(fs.readFileSync("repos-for-deletion.json"));
+const reposForDeletion = JSON.parse(
+  fs.readFileSync("./src/repos-for-deletion.json")
+);
 
 // Initialize the Octokit client for interacting with the GitHub API.
 // It uses the access token loaded from the 'config-loader' module.
 const octokit = new Octokit({
-  auth: githubAccessToken,
+  auth: service.githubAccessToken,
 });
 
 console.log(
@@ -33,6 +35,8 @@ async function deleteRepositories() {
     return;
   }
 
+  const outputFilename = "deleted-repos.json";
+  // Loop through each repository full name in the list.
   for (const repoFullName of reposForDeletion) {
     // Split the repository full name (owner/repo) into its owner and repository name components.
     const [owner, repoName] = repoFullName.split("/");
@@ -65,8 +69,8 @@ async function deleteRepositories() {
 
       // Append the deletion status to the 'deleted-repos.json' file.
       fs.appendFileSync(
-        "deleted-repos.json",
-        JSON.stringify(deletionEntry, null, 2) + "\n"
+        outputFilename,
+        JSON.stringify(deletionEntry, null, 2) + ",\n"
       ); // Added newline for better readability in the file.
 
       console.log(
@@ -79,7 +83,8 @@ async function deleteRepositories() {
       // Append the error details to the 'deleted-repos.json' file.
       fs.appendFileSync(
         "deleted-repos.json",
-        JSON.stringify({ repo: repoName, error: error.message }, null, 2) + "\n" // Added newline for better readability in the file.
+        JSON.stringify({ repo: repoName, error: error.message }, null, 2) +
+          ",\n" // Added newline for better readability in the file.
       );
     }
   }
