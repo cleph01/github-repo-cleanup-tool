@@ -68,11 +68,11 @@ touch .env
 
 ```Code snippet
 
-GITHUB_ACCESS_TOKEN="your_personal_access_token"
-GITHUB_USERNAME="your_username"
+GITHUB_ACCESS_TOKEN = your_personal_access_token
+GITHUB_USERNAME = your_username
 ```
 
-Replace "your_personal_access_token" and "your_username" with your actual credentials.
+Replace `your_personal_access_token` and `your_username` with your actual credentials.
 
 **2. Running the Scripts**
 
