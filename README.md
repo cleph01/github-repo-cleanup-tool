@@ -36,7 +36,7 @@ To interact with the GitHub API, you'll need to provide your GitHub credentials:
 1. **Clone the repository:**
 
    ```bash
-   git clone [https://github.com/cleph01/github-repo-cleanup-script.git](https://github.com/cleph01/github-repo-cleanup-tool.git)
+   git clone https://github.com/cleph01/github-repo-cleanup-tool.git
    cd github-repo-cleanup-script
    ```
 
