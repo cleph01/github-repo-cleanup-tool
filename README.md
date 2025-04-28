@@ -83,7 +83,7 @@ The `package.json` file includes several npm scripts to run the different parts 
 - `npm run delete`: Executes only the delete-repos.js script. Important: This script relies on a file named repos-for-deletion.json which you need to manually create and populate (see the next step).
 - `npm run fetch-and-delete`: This is an alias for npm run start, running both scripts sequentially.
 
-\*\*\* I run it old-school:
+**_I like to run it old-school:_**
 
 ```bash
    node src/fetch-repos.js
