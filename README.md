@@ -19,7 +19,7 @@ To interact with the GitHub API, you'll need to provide your GitHub credentials:
   1. Go to your GitHub account settings: [https://github.com/settings/tokens](https://github.com/settings/tokens)
   2. Click on **Generate new token** (or **Generate new token (classic)**).
   3. Give your token a descriptive name (e.g., "GitHub Repo Cleanup Script").
-  4. **Crucially, select the following scopes (permissions) for the token:**
+  4. **Select the following scopes (permissions) for the token:**
      - `repo` (This grants access to public and private repositories.)
      - `delete_repo` (This allows the script to delete repositories.)
   5. Click **Generate token**.
