@@ -4,13 +4,9 @@
  * in the API response to determine if there are more pages to fetch.
  */
 
-import dotenv from "dotenv";
 import { Octokit } from "@octokit/core";
 import service from "./config-loader.js"; // Assuming this module exports configuration like API token and username
 import fs from "fs";
-
-// Load environment variables from a .env file (if it exists)
-dotenv.config();
 
 // Initialize the Octokit client for interacting with the GitHub API.
 // It uses the access token loaded from the 'service' module.
